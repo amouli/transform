@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="ss" format="json">
+      <types:shape format="weave" example="examples/data.json"><![CDATA[%dw 2.0
+
+type ss = {|
+  firstName: String, 
+  lastName: String, 
+  age: String, 
+  Amount: Number {"typeId": "double"}
+|} {"example": "{\"firstName\":\"satheesh\",\"lastName\":\"Kumar\",\"age\":\"26\",\"Amount\":10.5}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#05c01dce-8d13-400a-923f-9a0cfaea2a72">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#33c06f46-e91b-4834-bd6c-e2c1436cde99">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#1f2427d7-690d-4809-8fcd-70c72691586a">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="ss"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
